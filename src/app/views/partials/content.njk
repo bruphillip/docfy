@@ -1,0 +1,24 @@
+<section id="content">
+  <nav>
+    <div class="sessions">
+      {% for sect in sections %}
+        <a class="{{ 'active' if sect.id == section.id }}" href="/app/dashboard/project/{{ projects.id }}/description/{{ sect.id }}">{{ sect.title }}</a>
+      {% endfor %}
+    </div>
+
+    <a href="#" data-modal-open="#new-section" class="btn"><img src="/img/plus.svg"></a>
+  </nav>
+
+  <article>
+    <div class="project-header">
+      <h1>{{ section.title }}</h1>
+
+      {% if section.id %}
+        <form action="/app/dashboard/project/{{ projects.id }}/description/destroy/{{ section.id }}?_method=DELETE" method="POST">
+          <button class="btn btn-danger" type="submit" style="margin-left: 50px;">Remover seção</button>
+        </form>
+      {% endif %}
+      </div>
+      <div class="content">{{ section.formattedContent | safe }}</div>
+    </article>
+  </section>
