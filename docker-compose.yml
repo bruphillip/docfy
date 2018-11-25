@@ -1,16 +1,16 @@
-version: '3'
-
+version: '2'
 services:
-  # db:
-  #   image: postgres
-  #   environment:
-  #     POSTGRES_PASSWORD: postgres
-  #     POSTGRES_USER: postgres
-  #     POSTGRES_DB: docfy
   app:
     build: .
+    working_dir: /src/app
     command: npm start
     ports:
       - '3000:3000'
     volumes:
       - .:/usr/app/
+    # depends_on:
+    #   - db
+    environment:
+      - DATABASE_HOST=db
+  # db:
+  #   image: dydx/alpine-mariadb
