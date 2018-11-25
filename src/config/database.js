@@ -3,6 +3,6 @@ module.exports = {
   password: 'postgres',
   database: 'docfy',
   host: '127.0.0.1',
-  dialect: 'postgres',
+  dialect: 'postgres'
   // dialect: 'mysql',
-}
+};

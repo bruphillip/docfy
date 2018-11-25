@@ -9,6 +9,9 @@ const routes = require('./app/routes');
 
 const app = express();
 
+const PORT = 3000;
+const HOST = '0.0.0.0';
+
 app.use(express.static(path.resolve('src', 'app', 'public')));
 require('./nunjucks')(app);
 
@@ -20,4 +23,4 @@ app.use(methodOverride('_method'));
 
 app.use('/', routes);
 
-app.listen(3000);
+app.listen(PORT, HOST);
